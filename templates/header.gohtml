@@ -1,0 +1,52 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/paper.min.css">
+  <style>
+    table a { background-image: none; text-decoration: underline; }
+    table a:visited { color: var(--secondary); }
+  </style>
+  <title>Scribble Forums by Tim</title>
+  <script src="/jdenticon.min.js"></script>
+</head>
+<body>
+<nav class="border split-nav">
+  <div class="nav-brand">
+    <h3><a href="/">scribble forums</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <label for="collapsible1">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+    </label>
+    <div class="collapsible-body">
+      <ul class="inline">
+        {{ if not .LoggedIn }} 
+          <li><a href="/login">log in</a></li>
+          <li><a href="/register">register</a></li>
+        {{ else }}
+          <li><svg width="35" height="35" style="vertical-align: middle" data-jdenticon-value="{{ .Username }}"></svg> {{ .Username }}</li>
+          <li>
+            <form action="/logout" method="post">
+              <button type="submit">log&nbsp;out</button>
+            </form>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+</nav>
+  <div class="paper container">
+  {{ if ne .FlashText "" }} 
+    <div class="row flex-spaces">
+      <div class="alert alert-{{ .FlashStyle }}">
+        {{ .FlashText }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}

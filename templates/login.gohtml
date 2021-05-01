@@ -1,0 +1,27 @@
+{{ define "login" }}
+{{ template "header" . }}
+
+<h3>log in</h3>
+
+<form action="/login" method="post">
+
+<div class="form-group">
+  <label for="username">username</label>
+  <input type="text" name="username" id="username">
+</div>
+
+<div class="form-group">
+  <label for="password">password</label>
+  <input type="password" name="password" id="password">
+</div>
+
+<div class="row">
+  <div class="col-6 col">
+    <button type="submit" class="btn-primary">log in!</button>
+  </div>
+</div>
+
+</form>
+
+{{ template "footer" }}
+{{ end }}

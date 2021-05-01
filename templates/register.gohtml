@@ -1,0 +1,27 @@
+{{ define "register" }}
+{{ template "header" . }}
+
+<h3>register</h3>
+
+<form action="/register" method="post">
+
+<div class="form-group">
+  <label for="username">username</label>
+  <input type="text" name="username" id="username" minlength="3" required>
+</div>
+
+<div class="form-group">
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" minlength="5" required>
+</div>
+
+<div class="row">
+  <div class="col-6 col">
+    <button type="submit" class="btn-primary">register!</button>
+  </div>
+</div>
+
+</form>
+
+{{ template "footer" }}
+{{ end }}

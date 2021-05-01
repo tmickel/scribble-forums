@@ -1,0 +1,39 @@
+{{ define "topic" }}
+{{ template "header" . }}
+
+<h4>Topic: {{.TopicTitle}}</h4>
+
+{{range $post := .PostsListing}}
+    <div class="paper container margin-bottom-small">
+        <svg width="35" height="35" style="vertical-align: middle" data-jdenticon-value="{{$post.Creator}}"></svg>
+        {{$post.Creator}}
+        at
+        {{$post.CreatedAt}}
+        {{$post.Message}}
+    </div>
+{{ end }}
+
+<br><br>
+{{ if .LoggedIn }}
+  <form action="/new-post" method="post">
+
+  <input type="hidden" name="topicId" value="{{.TopicId}}" />
+
+  <div class="form-group">
+    <label for="message">message - <em>markdown is permitted</em></label>
+    <textarea id="message" name="message" rows="6" cols="50" minlength="1" required></textarea>
+  </div>
+
+  <div class="row">
+    <div class="col-6 col">
+      <button type="submit" class="btn-primary">post!</button>
+    </div>
+  </div>
+
+  </form>
+{{ else }}
+  please <a href="/login">log in</a> or <a href="/register">register</a> to reply
+{{ end }}
+
+{{ template "footer" }}
+{{ end }}

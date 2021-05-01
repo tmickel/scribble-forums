@@ -1,0 +1,29 @@
+{{ define "index" }}
+{{ template "header" . }}
+
+{{ if .LoggedIn }}
+  <a href="/new" class="paper-btn btn-secondary-outline margin-bottom-small">new topic</a>
+{{ else }}
+  please <a href="/login">log in</a> or <a href="/register">register</a> to make new topics
+{{ end }}
+
+<table>
+    {{range $topic := .TopicsListing}}
+    <tr>
+      <td style="white-space: nowrap;"><svg width="35" height="35" style="vertical-align: middle" data-jdenticon-value="{{$topic.Creator}}"></svg>&nbsp;{{$topic.Creator}}</td>
+      <td style="width: 100%;">
+        <a href="/topic/{{$topic.Id}}">{{$topic.Title}}</a> <span class="badge">{{$topic.PostCount}}</span>
+        <br>
+        last post: {{$topic.LatestPostAt}} by
+        <span style="white-space: nowrap;">
+            <svg width="35" height="35" style="vertical-align: middle" data-jdenticon-value="{{$topic.LatestPoster}}"></svg>
+            {{$topic.LatestPoster}}
+        </span>
+      </td>
+    </tr>
+    {{end}}
+</table>
+
+
+{{ template "footer" }}
+{{ end }}
