@@ -11,5 +11,5 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from scribble-forums! We are temporarily down because I have to add the code to Git", r.URL.Path[1:])
+	fmt.Fprintf(w, "Hello from scribble-forums! We are temporarily down because I have to add the code to Git")
 }
