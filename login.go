@@ -3,8 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"github.com/bigfuncloud/bigfuncloud/programs/scribble-forums/auth"
 	"net/http"
+
+	"github.com/bigfuncloud/bigfuncloud/programs/scribble-forums/auth"
 )
 
 func login(w http.ResponseWriter, r *http.Request, db *sql.DB) {
