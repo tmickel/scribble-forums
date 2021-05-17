@@ -1,3 +1,4 @@
 {
-    "jobs": []
+    "jobs": [],
+    "requireLogin": false
 }
