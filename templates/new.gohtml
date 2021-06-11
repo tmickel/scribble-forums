@@ -1,25 +1,25 @@
 {{ define "new" }}
 {{ template "header" . }}
 
-<h3>new topic</h3>
+<h3>new topic!</h3>
 
 <form action="/new" method="post">
 
-<div class="form-group">
-  <label for="title">topic title</label>
-  <input type="text" name="title" id="title" minlength="5" required>
-</div>
-
-<div class="form-group">
-  <label for="message">message - <em>markdown is permitted</em></label>
-  <textarea id="message" name="message" rows="10" cols="50" minlength="1" required></textarea>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <button type="submit" class="btn-primary">post!</button>
+  <div class="form-group">
+    <label for="title">topic title</label>
+    <input type="text" name="title" id="title" minlength="5" required>
   </div>
-</div>
+
+  <div class="form-group">
+    <label for="message">message - <em>markdown is permitted</em></label>
+    <textarea id="message" name="message" rows="10" cols="50" minlength="1" required></textarea>
+  </div>
+
+  <div class="row">
+    <div class="col-6 col">
+      <button type="submit" class="btn-primary">post!</button>
+    </div>
+  </div>
 
 </form>
 

@@ -8,6 +8,7 @@ import (
 	"github.com/bigfuncloud/bigfuncloud/programs/scribble-forums/auth"
 )
 
+// testing
 func login(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	if err := r.ParseForm(); err != nil {
 		w.WriteHeader(http.StatusBadRequest)

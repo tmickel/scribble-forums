@@ -23,6 +23,7 @@ func run() error {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { serveRequest(w, r, db) })
+
 	http.ListenAndServe(":80", nil)
 
 	return nil
