@@ -2,6 +2,7 @@ package main
 
 import "net/http"
 
+// innocuous change
 func setFlash(w http.ResponseWriter, message string, style string) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "flash_text",
